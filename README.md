@@ -1,52 +1,117 @@
-# Exp-1 ATM & BANKING SYSTEM
+##  Develop a simple calculator using android studio to add two number.
 
-# AIM:
+## AIM:
 
-To study the problem statement ,SRS document and draw the UML diagram of library management system system
-# SRS (Procedure):
+To develop a program to develop a simple calculator in Android Studio to add two number.
 
-A Library Management System UML Diagram represents the design of how different components of a library interact. It typically includes several types of UML diagrams. Here's a simple explanation of each, along with the most important one: the Class Diagram. Use Case Diagram Shows actors and system functionalities. Actors: Librarian, Member Use Cases: Search Book, Issue Book, Return Book, Add Book, Remove Book, Pay Fine Sequence Diagram (Example: Book Issue Process) Shows object interactions in time sequence:
+## EQUIPMENTS REQUIRED:
 
-Actor: Member
+Android Studio(Min.required Artic Fox)
 
-Objects: Library System → Book → Borrower Activity Diagram Describes the flow of activities (like issuing a book). 47 List of Programs:
+## ALGORITHM:
 
-i) Usecase Diagram
+Step 1: Open Android Stdio and then click on File -> New -> New project.
 
-ii)Class Diagram
+Step 2: Then type the Application name as calculator and click Next. 
 
-iii)Activity Diagram
+Step 3: Then select the Minimum SDK as shown below and click Next.
 
-iv)Communication Diagram
+Step 4: Then select the Empty Activity and click Next. Finally click Finish.
 
-v)Package Diagram
+Step 5: Design layout using UI components in activity_main.xml.
 
-vi)Sequence Diagram
-# DIAGRAMS:
-## Usecase Diagram:
+Step 6: Display the calculator operation in MainActivity file.
 
-![1 UseCaseDiagram1](https://github.com/user-attachments/assets/214e6e13-b416-424c-b62c-060b1eee48b8)
+Step 7: Save and run the application.
 
-## Class Diagram:
+## PROGRAM:
 
-![2 ClassDiagram1](https://github.com/user-attachments/assets/c59b3c0b-dfe4-4911-af4c-b7b2367ee7a7)
+## activitymain.ja
+```
+package com.example.additionapp;
 
-## Activity Diagram:
+import androidx.appcompat.app.AppCompatActivity;
 
-![5 ActivityDiagram1](https://github.com/user-attachments/assets/5a8f7c60-702d-44db-b253-da3f527ff81e)
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-## Communication Diagram:
+public class MainActivity extends AppCompatActivity {
 
-![6 CommunicationDiagram1](https://github.com/user-attachments/assets/2907c0a0-5e84-464c-af79-17ad989238ce)
+    EditText etNum1, etNum2;
+    Button btnAdd;
+    TextView tvResult;
 
-## Package Diagram:
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-![4 PackageDiagram1](https://github.com/user-attachments/assets/a04cfdda-c303-402c-b8e0-7eaab00a3d9d)
+        etNum1 = findViewById(R.id.etNum1);
+        etNum2 = findViewById(R.id.etNum2);
+        btnAdd = findViewById(R.id.btnAdd);
+        tvResult = findViewById(R.id.tvResult);
 
-## Sequence Diagram:
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-![3 SequenceDiagram1](https://github.com/user-attachments/assets/1dd041cd-5fe9-40f8-8fe3-8548bf14866f)
+                double num1 = Double.parseDouble(etNum1.getText().toString());
+                double num2 = Double.parseDouble(etNum2.getText().toString());
 
-# RESULT:
+                double sum = num1 + num2;
 
-Thus the "ATM & BANKING SYSTEM" project created,executed & the output was verified
+                tvResult.setText("Sum = " + sum);
+            }
+        });
+    }
+}
+```
+## activitymain.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/etNum1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter First Number"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/etNum2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Second Number"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="22sp"
+        android:paddingTop="20dp"/>
+
+</LinearLayout>
+```
+## OUTPUT
+
+<img width="1718" height="996" alt="image" src="https://github.com/user-attachments/assets/50a12332-f067-48df-b399-e1cfb4522d3e" />
+
+## RESULT
+Thus a Simple Android Application develop a program to create simple calculator in Android Studio is developed and executed successfully.
+
